@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S02-1 連線成功｜數位實中 美術課 AI 眼鏡 App</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#20201f;font-family:'Noto Sans TC','PingFang TC',sans-serif;}
+#stage{display:flex;align-items:center;justify-content:center;min-height:100svh;}
+#screen{transform-origin:center center;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);}
+#menu{position:fixed;right:14px;bottom:14px;z-index:9;width:46px;height:46px;border-radius:23px;
+ background:rgba(246,242,234,.9);color:#3b3a38;display:flex;align-items:center;justify-content:center;
+ text-decoration:none;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.35);}
+
+    body { margin: 0; font-family: 'Noto Sans TC', 'PingFang TC', sans-serif; background: #f0ece4; }
+    a { color: #3b3a38; } a:hover { color: #1c1b19; }
+  
+</style>
+</head>
+<body>
+<div id="stage"><div id="screen" data-w="412" data-h="917">
+
+<div style="position: relative; width: 412px; height: 917px; box-sizing: border-box; background: #e3e0d8; padding: 120px 40px 48px; display: flex; flex-direction: column; align-items: center; gap: 28px;">
+  
+  <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 34px; letter-spacing: 3px; color: #1c1b19;">眼鏡連線</h1>
+  <div style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 22px 0 18px; border-radius: 22px; background: #e6f6ec; border: 2px solid #9fd8b4;">
+    <div style="width: 12px; height: 12px; border-radius: 6px; background: #22a05a;"></div>
+    <div style="font-size: 18px; font-weight: 700; color: #17663b;">已連線</div>
+  </div>
+  <div style="position: relative; width: 168px; height: 168px; border-radius: 84px; background: #c2beb8; display: flex; align-items: center; justify-content: center; color: #323130; margin-top: 8px;">
+    <svg width="104" height="104" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="14" r="3.5"></circle><circle cx="17" cy="14" r="3.5"></circle><path d="M10.5 14c.9-.8 2.1-.8 3 0"></path><path d="M3.5 13 5.5 7.5c.3-.8 1-1.1 1.8-.9M20.5 13l-2-5.5c-.3-.8-1-1.1-1.8-.9"></path></svg>
+    <div style="position: absolute; right: 0; bottom: 4px; width: 56px; height: 56px; border-radius: 28px; background: #22a05a; border: 4px solid #ffffff; display: flex; align-items: center; justify-content: center; color: #ffffff;">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7.5"></path></svg>
+    </div>
+  </div>
+  <div style="font-size: 24px; font-weight: 700; color: #17663b; margin-top: 8px;">恭喜！連線成功！</div>
+  <a href="03-code.html" style="margin-top: 44px; width: 280px; height: 68px; border-radius: 34px; background: #3b3a38; color: #f6f2ea; box-shadow: 0 6px 0 #20201f; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 26px; letter-spacing: 3px; text-decoration: none;">下一步</a>
+</div>
+
+</div></div>
+<a id="menu" href="index.html" aria-label="回畫面選單">☰</a>
+<script>
+(function(){
+  var el=document.getElementById('screen');
+  if(window.self!==window.top){var m=document.getElementById('menu');if(m)m.style.display='none';}
+  function fit(){
+    var w=+el.dataset.w,h=+el.dataset.h;
+    var s=Math.min(window.innerWidth/w,window.innerHeight/h);
+    if(window.innerWidth>640) s=Math.min(s*0.94,1);
+    el.style.transform='scale('+s+')';
+    el.style.marginLeft=((w*s-w)/2)+'px';
+    el.style.marginTop=((h*s-h)/2)+'px';
+    el.style.marginRight=((w*s-w)/2)+'px';
+    el.style.marginBottom=((h*s-h)/2)+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+  var inp=document.getElementById('course-code');
+  if(inp){
+    document.querySelectorAll('[data-k]').forEach(function(b){
+      b.addEventListener('click',function(){ if(inp.value.length<8) inp.value+=b.dataset.k; });
+    });
+    var del=document.querySelector('[data-act="del"]');
+    if(del) del.addEventListener('click',function(){ inp.value=inp.value.slice(0,-1); });
+  }
+})();
+</script>
+</body>
+</html>

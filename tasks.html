@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大題結構（給工程師）｜數位實中 美術課 AI 眼鏡 App</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#20201f;font-family:'Noto Sans TC','PingFang TC',sans-serif;}
+.bar{display:flex;align-items:center;gap:14px;padding:14px 18px;color:#f6f2ea;font-size:15px;}
+.bar a{color:#f6f2ea;text-decoration:none;border:1px solid #605d59;border-radius:16px;padding:5px 14px;}
+.wrap{padding:0 18px 28px;overflow:auto;}
+#doc{transform-origin:top left;box-shadow:0 14px 40px rgba(0,0,0,.4);}
+
+body{margin:0;background:#FFFFFF;font-family:'Noto Sans TC',sans-serif;color:#1C1B19}
+
+</style>
+</head>
+<body>
+<div class="bar"><a href="index.html">← 回選單</a><span>大題結構（給工程師）</span></div>
+<div class="wrap"><div id="holder"><div id="doc" data-w="830" data-h="1180">
+
+<div style="width: 830px; height: 1180px; box-sizing: border-box; padding: 48px 56px; background: #FFFFFF; font-family: 'Noto Sans TC', sans-serif; color: #1C1B19; display: flex; flex-direction: column; gap: 20px;">
+
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: 38px; font-weight: 700; letter-spacing: 2px;">大題結構</h1>
+    <div style="font-size: 21px; line-height: 1.5; color: #323130;">App 裡共 4 個大題。每個大題存下來的每一筆資料，都要帶「共同欄位」。</div>
+  </div>
+
+  <div style="display: flex; gap: 16px; align-items: center; padding: 14px 18px; border: 2px solid #989691; border-radius: 12px; font-size: 20px;">
+    <b style="flex-shrink: 0;">共同欄位</b><span style="color: #323130;">課程代碼・班級・座號・姓名・大題編號・時間</span>
+  </div>
+
+  <table style="width: 100%; border-collapse: collapse; border: 2px solid #989691;">
+    <thead><tr>
+      <th style="padding: 14px 18px; text-align: left; font-size: 20px; font-weight: 700; color: #f6f2ea; background: #3b3a38; width: 300px;">大題</th>
+      <th style="padding: 14px 18px; text-align: left; font-size: 20px; font-weight: 700; color: #f6f2ea; background: #3b3a38;">要存的資料</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;"><div style="display: flex; align-items: flex-start; gap: 10px;"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 18px; background: #A4553A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 19px;">1</span><div><div style="font-weight: 700; font-size: 23px;">邊畫邊聊</div><div style="font-size: 17px; color: #A4553A; font-weight: 700;">創作課</div></div></div></td>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;">每拍一次存一筆：<br>照片、第幾段<br>學生說的話（錄音轉文字）<br>AI 回的話</td>
+      </tr>
+      <tr>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;"><div style="display: flex; align-items: flex-start; gap: 10px;"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 18px; background: #3E5E7E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 19px;">2</span><div><div style="font-weight: 700; font-size: 23px;">看看這幅畫</div><div style="font-size: 17px; color: #3E5E7E; font-weight: 700;">賞析課</div></div></div></td>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;">每幅畫存一筆：<br>名畫編號（老師後台上傳的）<br>學生的看法<br>AI 的猜測：作者／流派／風格<br>學生回填「我查到的」</td>
+      </tr>
+      <tr>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;"><div style="display: flex; align-items: flex-start; gap: 10px;"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 18px; background: #5E7040; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 19px;">3</span><div><div style="font-weight: 700; font-size: 23px;">我的心得</div><div style="font-size: 17px; color: #5E7040; font-weight: 700;">兩種課都有</div></div></div></td>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;">心得與反思（文字，可長可短）<br>寫在哪一種課（大題 1 或 2）</td>
+      </tr>
+      <tr>
+        <td style="padding: 16px 18px; vertical-align: top; font-size: 21px; line-height: 1.6; border-top: 1px solid #989691;"><div style="display: flex; align-items: flex-start; gap: 10px;"><div></div></div></td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="display: flex; flex-direction: column; gap: 8px; font-size: 19px; line-height: 1.6; color: #323130;">
+    <div>・一堂課只做一件事：創作課＝大題 1＋3，賞析課＝大題 2＋3。</div>
+    <div>・大題 1 的段數由學生自己決定，沒有上限；大題 2 的幅數看老師後台放幾張。</div>
+    <div>・沒網路時先存在手機裡，有網路再自動補傳；補傳完才算「已上傳」。</div>
+  </div>
+
+</div>
+
+</div></div></div>
+<script>
+(function(){
+  var el=document.getElementById('doc'),ho=document.getElementById('holder');
+  function fit(){
+    var w=+el.dataset.w,h=+el.dataset.h;
+    var s=Math.min((window.innerWidth-36)/w,1);
+    el.style.transform='scale('+s+')';
+    ho.style.width=(w*s)+'px';ho.style.height=(h*s)+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+})();
+</script>
+</body>
+</html>

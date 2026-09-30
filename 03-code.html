@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S03 課程代碼／QR｜數位實中 美術課 AI 眼鏡 App</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#20201f;font-family:'Noto Sans TC','PingFang TC',sans-serif;}
+#stage{display:flex;align-items:center;justify-content:center;min-height:100svh;}
+#screen{transform-origin:center center;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);}
+#menu{position:fixed;right:14px;bottom:14px;z-index:9;width:46px;height:46px;border-radius:23px;
+ background:rgba(246,242,234,.9);color:#3b3a38;display:flex;align-items:center;justify-content:center;
+ text-decoration:none;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.35);}
+
+    body { margin: 0; font-family: 'Noto Sans TC', 'PingFang TC', sans-serif; background: #f0ece4; }
+    a { color: #3b3a38; } a:hover { color: #1c1b19; }
+    input::placeholder { color: #6b6862; letter-spacing: 0; font-size: 18px; }
+  
+</style>
+</head>
+<body>
+<div id="stage"><div id="screen" data-w="412" data-h="917">
+
+<div style="width: 412px; height: 917px; box-sizing: border-box; background: #e3e0d8; padding: 20px 20px 40px; display: flex; flex-direction: column; gap: 24px;">
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+    
+    <div style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px 0 14px; border-radius: 20px; background: #e6f6ec; border: 2px solid #9fd8b4;">
+      <div style="width: 10px; height: 10px; border-radius: 5px; background: #22a05a;"></div>
+      <div style="font-size: 16px; font-weight: 700; color: #17663b;">眼鏡已連線</div>
+    </div>
+    </div>
+    <div style="display: flex; gap: 12px;">
+      <button type="button" aria-label="使用者頭像" style="width: 48px; height: 48px; border-radius: 24px; padding: 0; background: #c2beb8; border: 3px solid #ffffff; box-shadow: 0 0 0 2px #989691; color: #323130; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="4"></circle><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"></path></svg>
+      </button>
+      <button type="button" aria-label="設定" style="width: 48px; height: 48px; border-radius: 24px; padding: 0; background: #ffffff; border: 2px solid #989691; color: #323130; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg>
+      </button>
+    </div>
+  </div>
+  <label for="course-code" style="margin-top: 16px; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 34px; letter-spacing: 4px; color: #1c1b19;">課程代碼</label>
+  <div style="height: 68px; box-sizing: border-box; border-radius: 34px; border: 3px solid #989691; background: #ffffff; display: flex; align-items: center; padding: 0 8px 0 24px; gap: 8px;">
+    <input id="course-code" type="text" readonly="" value="" placeholder="請輸入或掃描代碼" style="flex-grow: 1; min-width: 0; border: none; outline: none; background: transparent; font-family: inherit; font-size: 30px; font-weight: 700; letter-spacing: 6px; color: #1c1b19; text-align: left">
+    <button type="button" aria-label="掃描 QR Code" style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 16px; padding: 0; border: none; background: #3b3a38; color: #f6f2ea; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"></path><path d="M8 12h8"></path></svg>
+    </button>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 4px 28px 0;">
+    <button type="button" data-k="1" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">1</button><button type="button" data-k="2" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">2</button><button type="button" data-k="3" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">3</button><button type="button" data-k="4" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">4</button><button type="button" data-k="5" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">5</button><button type="button" data-k="6" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">6</button><button type="button" data-k="7" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">7</button><button type="button" data-k="8" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">8</button><button type="button" data-k="9" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">9</button>
+    <div></div>
+    <button type="button" data-act="del" style="height: 76px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; box-shadow: 0 5px 0 #c2beb8; font-family: inherit; font-size: 34px; font-weight: 700; color: #1c1b19; cursor: pointer;">0</button>
+    <button type="button" aria-label="刪除一個字" data-act="del" style="height: 76px; border-radius: 22px; background: #c2beb8; border: 2px solid #989691; box-shadow: 0 5px 0 #989691; color: #1c1b19; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h10.5A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5H9l-6-7z"></path><path d="M12.5 9.5l5 5M17.5 9.5l-5 5"></path></svg>
+    </button>
+  </div>
+  <a href="03-2-profile.html" style="align-self: center; margin-top: 12px; width: 280px; height: 68px; border-radius: 34px; background: #3b3a38; color: #f6f2ea; box-shadow: 0 6px 0 #20201f; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 26px; letter-spacing: 3px; text-decoration: none;">確認</a>
+</div>
+
+</div></div>
+<a id="menu" href="index.html" aria-label="回畫面選單">☰</a>
+<script>
+(function(){
+  var el=document.getElementById('screen');
+  if(window.self!==window.top){var m=document.getElementById('menu');if(m)m.style.display='none';}
+  function fit(){
+    var w=+el.dataset.w,h=+el.dataset.h;
+    var s=Math.min(window.innerWidth/w,window.innerHeight/h);
+    if(window.innerWidth>640) s=Math.min(s*0.94,1);
+    el.style.transform='scale('+s+')';
+    el.style.marginLeft=((w*s-w)/2)+'px';
+    el.style.marginTop=((h*s-h)/2)+'px';
+    el.style.marginRight=((w*s-w)/2)+'px';
+    el.style.marginBottom=((h*s-h)/2)+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+  var inp=document.getElementById('course-code');
+  if(inp){
+    document.querySelectorAll('[data-k]').forEach(function(b){
+      b.addEventListener('click',function(){ if(inp.value.length<8) inp.value+=b.dataset.k; });
+    });
+    var del=document.querySelector('[data-act="del"]');
+    if(del) del.addEventListener('click',function(){ inp.value=inp.value.slice(0,-1); });
+  }
+})();
+</script>
+</body>
+</html>

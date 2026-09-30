@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S09 送出結果｜數位實中 美術課 AI 眼鏡 App</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#20201f;font-family:'Noto Sans TC','PingFang TC',sans-serif;}
+#stage{display:flex;align-items:center;justify-content:center;min-height:100svh;}
+#screen{transform-origin:center center;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);}
+#menu{position:fixed;right:14px;bottom:14px;z-index:9;width:46px;height:46px;border-radius:23px;
+ background:rgba(246,242,234,.9);color:#3b3a38;display:flex;align-items:center;justify-content:center;
+ text-decoration:none;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.35);}
+
+    body { margin: 0; font-family: 'Noto Sans TC', 'PingFang TC', sans-serif; background: #f0ece4; }
+    a { color: #3b3a38; } a:hover { color: #1c1b19; }
+    button { font-family: inherit; }
+    textarea, input { font-family: inherit; }
+  
+</style>
+</head>
+<body>
+<div id="stage"><div id="screen" data-w="412" data-h="917">
+
+<div style="width: 412px; height: 917px; box-sizing: border-box; background: #e3e0d8; padding: 64px 32px 48px; display: flex; flex-direction: column; gap: 22px; position: relative;">
+  <a href="04-main.html" aria-label="上一頁" style="position: absolute; left: 20px; top: 20px; z-index: 2; width: 44px; height: 44px; border-radius: 22px; background: #ffffff; border: 2px solid #989691; color: #323130; box-shadow: 0 3px 0 #c2beb8; display: flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <div style="flex-grow: 1;"></div>
+  <div style="position: relative; width: 168px; height: 168px; margin: 0 auto; border-radius: 84px; background: #c2beb8; color: #323130; display: flex; align-items: center; justify-content: center;">
+    <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8l8 5 8-5"></path><rect x="4" y="6" width="16" height="12" rx="2"></rect></svg>
+    <div style="position: absolute; right: -4px; bottom: -4px; width: 56px; height: 56px; border-radius: 28px; background: #22a05a; border: 4px solid #ffffff; color: #ffffff; display: flex; align-items: center; justify-content: center;">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+    </div>
+  </div>
+  <h1 style="margin: 0; text-align: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 34px; letter-spacing: 4px; color: #1c1b19;">老師收到了！</h1>
+  <div style="text-align: center; font-size: 20px; font-weight: 500; line-height: 1.6; color: #1c1b19;">今天畫得很認真，<br>你的想法都留下來了。</div>
+  <div style="margin: 0 auto; padding: 12px 18px; border-radius: 16px; background: #ffffff; border: 2px dashed #989691; font-size: 15px; color: #5e5873; text-align: center; line-height: 1.5;">沒有網路時會顯示：<br>「先幫你存起來，有網路會自動送」</div>
+  <div style="flex-grow: 1;"></div>
+  <a href="04-main.html" style="width: 280px; height: 68px; box-sizing: border-box; margin: 0 auto; border-radius: 34px; border: none; background: #3b3a38; color: #f6f2ea; box-shadow: 0 6px 0 #20201f; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 26px; letter-spacing: 3px; text-decoration: none; cursor: pointer;">回首頁</a>
+</div>
+
+</div></div>
+<a id="menu" href="index.html" aria-label="回畫面選單">☰</a>
+<script>
+(function(){
+  var el=document.getElementById('screen');
+  if(window.self!==window.top){var m=document.getElementById('menu');if(m)m.style.display='none';}
+  function fit(){
+    var w=+el.dataset.w,h=+el.dataset.h;
+    var s=Math.min(window.innerWidth/w,window.innerHeight/h);
+    if(window.innerWidth>640) s=Math.min(s*0.94,1);
+    el.style.transform='scale('+s+')';
+    el.style.marginLeft=((w*s-w)/2)+'px';
+    el.style.marginTop=((h*s-h)/2)+'px';
+    el.style.marginRight=((w*s-w)/2)+'px';
+    el.style.marginBottom=((h*s-h)/2)+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+  var inp=document.getElementById('course-code');
+  if(inp){
+    document.querySelectorAll('[data-k]').forEach(function(b){
+      b.addEventListener('click',function(){ if(inp.value.length<8) inp.value+=b.dataset.k; });
+    });
+    var del=document.querySelector('[data-act="del"]');
+    if(del) del.addEventListener('click',function(){ inp.value=inp.value.slice(0,-1); });
+  }
+})();
+</script>
+</body>
+</html>

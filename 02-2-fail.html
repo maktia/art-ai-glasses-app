@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>S02-2 連線失敗｜數位實中 美術課 AI 眼鏡 App</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#20201f;font-family:'Noto Sans TC','PingFang TC',sans-serif;}
+#stage{display:flex;align-items:center;justify-content:center;min-height:100svh;}
+#screen{transform-origin:center center;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45);}
+#menu{position:fixed;right:14px;bottom:14px;z-index:9;width:46px;height:46px;border-radius:23px;
+ background:rgba(246,242,234,.9);color:#3b3a38;display:flex;align-items:center;justify-content:center;
+ text-decoration:none;font-size:20px;box-shadow:0 4px 14px rgba(0,0,0,.35);}
+
+    body { margin: 0; font-family: 'Noto Sans TC', 'PingFang TC', sans-serif; background: #f0ece4; }
+    a { color: #3b3a38; } a:hover { color: #1c1b19; }
+  
+</style>
+</head>
+<body>
+<div id="stage"><div id="screen" data-w="412" data-h="917">
+
+<div style="position: relative; width: 412px; height: 917px; box-sizing: border-box; background: #e3e0d8; padding: 120px 40px 48px; display: flex; flex-direction: column; align-items: center; gap: 24px;">
+  
+  <h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 34px; letter-spacing: 3px; color: #1c1b19;">眼鏡連線</h1>
+  <div style="display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 22px 0 18px; border-radius: 22px; background: #fdecea; border: 2px solid #f1b3ad;">
+    <div style="width: 12px; height: 12px; border-radius: 6px; background: #c9372c;"></div>
+    <div style="font-size: 18px; font-weight: 700; color: #a12a20;">未連線</div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 8px; font-size: 22px; font-weight: 700; color: #c9372c; margin-top: 12px;">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 9l6 6M15 9l-6 6"></path></svg>
+    連線失敗
+  </div>
+  <div style="width: 100%; box-sizing: border-box; background: #ffffff; border-radius: 24px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 16px; font-weight: 700; color: #323130;">請再試一次：</div>
+    <div style="display: flex; align-items: center; gap: 12px; font-size: 18px; color: #4a4640;"><div style="width: 28px; height: 28px; border-radius: 14px; background: #c2beb8; color: #1c1b19; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>戴上眼鏡</div>
+    <div style="display: flex; align-items: center; gap: 12px; font-size: 18px; color: #4a4640;"><div style="width: 28px; height: 28px; border-radius: 14px; background: #c2beb8; color: #1c1b19; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>按住眼鏡左邊按鈕 2 秒鐘</div>
+    <div style="display: flex; align-items: center; gap: 12px; font-size: 18px; color: #4a4640;"><div style="width: 28px; height: 28px; border-radius: 14px; background: #c2beb8; color: #1c1b19; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>開啟眼鏡</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 16px;">
+    <a href="02-connect.html" style="width: 280px; height: 68px; border-radius: 34px; background: #3b3a38; color: #f6f2ea; box-shadow: 0 6px 0 #20201f; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 26px; letter-spacing: 3px; text-decoration: none;">重新連線</a>
+    <a href="02-3-skip.html" style="width: 280px; height: 60px; box-sizing: border-box; border-radius: 30px; background: #ffffff; border: 3px solid #989691; color: #323130; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 22px; letter-spacing: 2px; text-decoration: none;">略過</a>
+  </div>
+</div>
+
+</div></div>
+<a id="menu" href="index.html" aria-label="回畫面選單">☰</a>
+<script>
+(function(){
+  var el=document.getElementById('screen');
+  if(window.self!==window.top){var m=document.getElementById('menu');if(m)m.style.display='none';}
+  function fit(){
+    var w=+el.dataset.w,h=+el.dataset.h;
+    var s=Math.min(window.innerWidth/w,window.innerHeight/h);
+    if(window.innerWidth>640) s=Math.min(s*0.94,1);
+    el.style.transform='scale('+s+')';
+    el.style.marginLeft=((w*s-w)/2)+'px';
+    el.style.marginTop=((h*s-h)/2)+'px';
+    el.style.marginRight=((w*s-w)/2)+'px';
+    el.style.marginBottom=((h*s-h)/2)+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+  var inp=document.getElementById('course-code');
+  if(inp){
+    document.querySelectorAll('[data-k]').forEach(function(b){
+      b.addEventListener('click',function(){ if(inp.value.length<8) inp.value+=b.dataset.k; });
+    });
+    var del=document.querySelector('[data-act="del"]');
+    if(del) del.addEventListener('click',function(){ inp.value=inp.value.slice(0,-1); });
+  }
+})();
+</script>
+</body>
+</html>

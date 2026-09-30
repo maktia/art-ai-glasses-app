@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>數位實中 美術課 AI 眼鏡 App｜手機模擬</title>
+<meta name="description" content="新竹五校 AI 眼鏡專案：數位實中美術課 App 的手機模擬原型，畫面可以點、可以一頁一頁走完。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap">
+<style>
+:root{
+  --bg:#171716; --panel:#201f1e; --line:#35342f; --line2:#4a4843;
+  --cream:#f6f2ea; --muted:#9b978f; --stone:#3b3a38;
+  --orange:#c98a6e; --blue:#8fa9bf; --green:#9fd8b4; --red:#f1b3ad; --amber:#e8c48a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--cream);
+  font-family:'Noto Sans TC','PingFang TC',sans-serif;-webkit-text-size-adjust:100%;overflow:hidden;}
+a{color:inherit}
+
+/* ---------- 版面 ---------- */
+.app{display:flex;height:100dvh;}
+aside{width:312px;flex-shrink:0;border-right:1px solid var(--line);
+  background:var(--panel);display:flex;flex-direction:column;}
+.side-head{padding:26px 24px 18px;border-bottom:1px solid var(--line);}
+.kicker{font-size:11px;letter-spacing:3px;color:var(--muted);margin-bottom:8px;}
+h1{margin:0 0 8px;font-family:'Noto Serif TC',serif;font-weight:700;
+  font-size:21px;letter-spacing:2px;line-height:1.35;}
+.side-head p{margin:0;font-size:12.5px;line-height:1.7;color:var(--muted);}
+.side-body{flex:1;overflow-y:auto;padding:16px 16px 24px;}
+.side-body::-webkit-scrollbar{width:8px}
+.side-body::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+
+.grp{margin:14px 0 6px;padding:0 8px;font-size:12px;font-weight:700;
+  letter-spacing:2px;color:var(--muted);}
+.grp:first-child{margin-top:2px}
+.item{display:flex;align-items:center;gap:11px;width:100%;padding:9px 10px;
+  border:0;border-radius:11px;background:transparent;color:var(--cream);
+  font-family:inherit;font-size:13.5px;text-align:left;cursor:pointer;line-height:1.4;}
+.item:hover{background:#2a2927}
+.item.on{background:var(--cream);color:#1c1b19;font-weight:700}
+.dot{width:8px;height:8px;border-radius:4px;flex-shrink:0;background:var(--line2)}
+.item.on .dot{background:#1c1b19}
+.dot.o{background:var(--orange)} .dot.b{background:var(--blue)}
+.dot.g{background:var(--green)} .dot.r{background:var(--red)} .dot.a{background:var(--amber)}
+.code{font-size:11.5px;color:var(--muted);flex-shrink:0}
+.item.on .code{color:#5f5b54}
+.docs{display:flex;flex-wrap:wrap;gap:7px;padding:4px 8px 0}
+.docs a{padding:6px 11px;border:1px solid var(--line2);border-radius:14px;
+  font-size:12px;color:var(--muted);text-decoration:none}
+.docs a:hover{border-color:var(--muted);color:var(--cream)}
+.side-foot{padding:14px 20px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.restart{padding:8px 14px;border:1px solid var(--line2);border-radius:16px;
+  background:transparent;color:var(--cream);font-family:inherit;font-size:12.5px;cursor:pointer}
+.restart:hover{border-color:var(--muted)}
+.side-foot span{font-size:11px;color:var(--muted)}
+
+/* ---------- 手機 ---------- */
+main{flex:1;position:relative;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 0%,#232220 0%,var(--bg) 62%);}
+#phone{transform-origin:center center;}
+.body{position:relative;width:452px;height:1001px;border-radius:62px;
+  background:linear-gradient(150deg,#4a4844 0%,#232220 26%,#1b1a19 62%,#3a3835 100%);
+  padding:20px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(246,242,234,.07);}
+.screen{position:relative;width:412px;height:961px;border-radius:44px;overflow:hidden;
+  background:#e3e0d8;}
+.status{height:44px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 26px;background:#e3e0d8;color:#1c1b19;font-size:14px;font-weight:700;
+  letter-spacing:.3px;position:relative;z-index:2;}
+.island{position:absolute;left:50%;top:9px;transform:translateX(-50%);
+  width:104px;height:26px;border-radius:13px;background:#111;}
+.bars{display:flex;align-items:center;gap:6px}
+iframe{display:block;width:412px;height:917px;border:0;background:#e3e0d8}
+.btn-side{position:absolute;background:linear-gradient(90deg,#2b2a28,#4a4844);border-radius:2px}
+.b1{left:-3px;top:196px;width:4px;height:34px}
+.b2{left:-3px;top:250px;width:4px;height:60px}
+.b3{left:-3px;top:326px;width:4px;height:60px}
+.b4{right:-3px;top:288px;width:4px;height:94px}
+
+.hint{position:absolute;left:0;right:0;bottom:16px;text-align:center;
+  font-size:11.5px;color:var(--muted);pointer-events:none}
+
+/* ---------- 手機瀏覽 ---------- */
+.menu-btn{display:none;position:fixed;right:14px;bottom:14px;z-index:20;
+  width:50px;height:50px;border-radius:25px;border:0;background:rgba(246,242,234,.94);
+  color:#1c1b19;font-size:20px;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.45)}
+@media (max-width:899px){
+  aside{position:fixed;inset:0 0 0 auto;width:min(86vw,320px);z-index:18;
+    transform:translateX(100%);transition:transform .22s ease;}
+  aside.open{transform:none}
+  .menu-btn{display:flex;align-items:center;justify-content:center}
+  .body{padding:0;border-radius:0;background:none;box-shadow:none;width:412px;height:917px}
+  .screen{border-radius:0;height:917px}
+  .status{display:none}
+  .btn-side{display:none}
+  .hint{display:none}
+  main{background:#e3e0d8}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside id="side">
+    <div class="side-head">
+      <div class="kicker">新竹五校 AI 眼鏡專案</div>
+      <h1>數位實中<br>美術課 AI 眼鏡 App</h1>
+      <p>手機模擬原型。畫面和按鈕都能點，但沒有接後端、也沒有接 AI，照片和對話都是假資料。</p>
+    </div>
+
+    <div class="side-body" id="list"></div>
+
+    <div class="side-foot">
+      <button class="restart" id="restart">回到首頁重來</button>
+      <span>v1・2026.09</span>
+    </div>
+  </aside>
+
+  <main>
+    <div id="phone">
+      <div class="body">
+        <div class="btn-side b1"></div><div class="btn-side b2"></div>
+        <div class="btn-side b3"></div><div class="btn-side b4"></div>
+        <div class="screen">
+          <div class="status">
+            <span id="clock">9:41</span>
+            <div class="island"></div>
+            <span class="bars">
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 4.2a10 10 0 0 1 14 0"/><path d="M3.6 6.9a6.4 6.4 0 0 1 8.8 0"/><path d="M6.2 9.5a2.7 2.7 0 0 1 3.6 0"/></svg>
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none" aria-hidden="true"><rect x="0.6" y="0.6" width="21" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.2" y="2.2" width="16" height="7.6" rx="2" fill="currentColor"/><path d="M23 4.3v3.4a2 2 0 0 0 0-3.4z" fill="currentColor" opacity=".5"/></svg>
+            </span>
+          </div>
+          <iframe id="stage" src="01-home.html" title="App 畫面"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="hint">點手機裡的按鈕就會換頁；左邊清單可以直接跳到任何一頁</div>
+  </main>
+
+</div>
+
+<button class="menu-btn" id="menuBtn" aria-label="畫面清單">☰</button>
+
+<script>
+const GROUPS = [
+  ['第一段　上課前', [
+    ['01-home.html','S01','首頁',''],
+    ['02-connect.html','S02','眼鏡連線',''],
+    ['02-1-success.html','S02-1','連線成功','g'],
+    ['02-2-fail.html','S02-2','連線失敗','r'],
+    ['02-3-skip.html','S02-3','略過確認','a'],
+    ['03-code.html','S03','課程代碼',''],
+    ['03-1-code-fail.html','S03-1','代碼錯誤','r'],
+    ['03-2-profile.html','S03-2','學生個人資料',''],
+  ]],
+  ['第二段　課堂中', [
+    ['04-main.html','S04','今天你想做什麼',''],
+    ['05-create.html','S05','邊畫邊聊','o'],
+    ['06-look.html','S06','看看這幅畫','b'],
+    ['04-2-sheets.html','S04-2','我的學習單',''],
+  ]],
+  ['第三段　下課前', [
+    ['05-2-sheet-create.html','S05-2','學習單・創作歷程','o'],
+    ['06-2-sheet-look.html','S06-2','學習單・作品賞析','b'],
+    ['09-done.html','S09','送出結果','g'],
+  ]],
+];
+const DOCS = [
+  ['flow-1.html','流程圖①'],['flow-2.html','流程圖②'],['flow-3.html','流程圖③'],
+  ['flow-4.html','流程圖④'],['flow-5.html','操作流程'],['tasks.html','大題結構'],
+];
+
+const list = document.getElementById('list');
+const stage = document.getElementById('stage');
+const side = document.getElementById('side');
+
+GROUPS.forEach(([title, items]) => {
+  const h = document.createElement('div');
+  h.className = 'grp'; h.textContent = title; list.appendChild(h);
+  items.forEach(([file, code, name, kind]) => {
+    const b = document.createElement('button');
+    b.className = 'item'; b.dataset.file = file;
+    b.innerHTML = '<span class="dot ' + kind + '"></span><span>' + name +
+      '</span><span class="code" style="margin-left:auto">' + code + '</span>';
+    b.onclick = () => { stage.src = file; side.classList.remove('open'); };
+    list.appendChild(b);
+  });
+});
+const dh = document.createElement('div');
+dh.className = 'grp'; dh.textContent = '流程圖與規格'; list.appendChild(dh);
+const dd = document.createElement('div');
+dd.className = 'docs';
+DOCS.forEach(([f, n]) => {
+  const a = document.createElement('a');
+  a.href = f; a.target = '_blank'; a.rel = 'noopener'; a.textContent = n;
+  dd.appendChild(a);
+});
+list.appendChild(dd);
+
+function mark() {
+  let cur = '';
+  try { cur = stage.contentWindow.location.pathname.split('/').pop(); } catch (e) {}
+  document.querySelectorAll('.item').forEach(b => {
+    b.classList.toggle('on', b.dataset.file === cur);
+    if (b.classList.contains('on')) b.scrollIntoView({block: 'nearest'});
+  });
+}
+stage.addEventListener('load', mark);
+mark();
+
+document.getElementById('restart').onclick = () => { stage.src = '01-home.html'; };
+document.getElementById('menuBtn').onclick = () => side.classList.toggle('open');
+
+const phone = document.getElementById('phone');
+function fit() {
+  const wide = window.innerWidth >= 900;
+  const availW = window.innerWidth - (wide ? 312 + 80 : 0);
+  const availH = window.innerHeight - (wide ? 76 : 0);
+  const w = wide ? 452 : 412, h = wide ? 1001 : 917;
+  const s = Math.min(availW / w, availH / h, 1);
+  phone.style.transform = 'scale(' + s + ')';
+}
+fit();
+window.addEventListener('resize', fit);
+
+const clock = document.getElementById('clock');
+function tick() {
+  const d = new Date();
+  clock.textContent = d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
+}
+tick(); setInterval(tick, 20000);
+</script>
+</body>
+</html>
